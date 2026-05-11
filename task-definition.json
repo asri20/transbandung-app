@@ -22,11 +22,11 @@
         },
         {
           "name": "DB_USER",
-          "value": "YOUR_DB_USER_HERE"
+          "value": "admin"
         },
         {
           "name": "DB_NAME",
-          "value": "YOUR_DB_NAME_HERE"
+          "value": "transbandung"
         },
         {
           "name": "AWS_SECRET_KEY",
@@ -42,7 +42,7 @@
         },
         {
           "name": "DB_HOST",
-          "value": "YOUR_RDS_ENDPOINT_HERE"
+          "value": "db-transbandung.cbkgio0y0g1s.ap-southeast-2.rds.amazonaws.com"
         },
         {
           "name": "DB_PASSWORD",
