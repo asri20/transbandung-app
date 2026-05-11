@@ -16,3 +16,9 @@ Sistem ini menggunakan pipeline otomatis. Setiap kali ada perubahan kode yang di
 2. Melakukan **Tagging** image ke region Sydney (`ap-southeast-2`).
 3. Melakukan **Push** image ke Amazon ECR.
 4. Melakukan **Deploy** atau update service pada Amazon ECS Fargate secara otomatis.
+
+## 🛠️ Troubleshooting & Lessons Learned
+Selama proses pengerjaan, ditemukan beberapa kendala teknis:
+* **Region Mismatch:** Sempat terjadi error karena image di-*push* ke region Virginia (`us-east-1`) sementara Cluster ECS berada di Sydney (`ap-southeast-2`). Solusinya adalah melakukan sinkronisasi seluruh resource ke Sydney.
+* **ECR Repository:** Deployment sempat gagal karena repository di Sydney belum dibuat secara manual. Setelah dibuat, pipeline berjalan lancar.
+* **Port Mapping:** Penyesuaian port dari 80 ke 3000 agar sesuai dengan aplikasi Node.js.
