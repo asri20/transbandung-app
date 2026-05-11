@@ -10,7 +10,7 @@ env:
   ECS_SERVICE: transbandung-task-sydney-service-locezo5g
   ECS_CLUSTER: transbandung-cluster-sydney
   ECS_TASK_DEFINITION: task-definition.json
-  CONTAINER_NAME: transbandung-container  # <--- Ini harus sama dengan di JSON       
+  CONTAINER_NAME: transbandung-container
 
 jobs:
   deploy:
@@ -50,6 +50,12 @@ jobs:
         task-definition: ${{ env.ECS_TASK_DEFINITION }}
         container-name: ${{ env.CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
+        # BAGIAN YANG DIPERBAIKI: Memetakan Secrets ke Variabel Lingkungan Aplikasi
+        environment-variables: |
+          AWS_ACCESS_KEY=${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION=${{ env.AWS_REGION }}
+          S3_BUCKET_NAME=transbandung-asri-bucket-2026
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
