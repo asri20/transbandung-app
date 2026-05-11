@@ -22,3 +22,10 @@ Selama proses pengerjaan, ditemukan beberapa kendala teknis:
 * **Region Mismatch:** Sempat terjadi error karena image di-*push* ke region Virginia (`us-east-1`) sementara Cluster ECS berada di Sydney (`ap-southeast-2`). Solusinya adalah melakukan sinkronisasi seluruh resource ke Sydney.
 * **ECR Repository:** Deployment sempat gagal karena repository di Sydney belum dibuat secara manual. Setelah dibuat, pipeline berjalan lancar.
 * **Port Mapping:** Penyesuaian port dari 80 ke 3000 agar sesuai dengan aplikasi Node.js.
+
+## 📸 Screenshots
+### GitHub Actions Success
+![CI/CD Success](screenshots/success-deployment.png.jpeg)
+
+### AWS ECS Service Stability
+Aplikasi berjalan stabil di Amazon ECS Fargate.
