@@ -1,0 +1,74 @@
+{
+  "family": "transbandung-task-sydney",
+  "containerDefinitions": [
+    {
+      "name": "transbandung-container",
+      "image": "503280397499.dkr.ecr.ap-southeast-2.amazonaws.com/transbandung-app:latest",
+      "cpu": 0,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 3000,
+          "protocol": "tcp",
+          "name": "transbandung-container-3000-tcp",
+          "appProtocol": "http"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        {
+          "name": "AWS_REGION",
+          "value": "ap-southeast-2"
+        },
+        {
+          "name": "DB_USER",
+          "value": "YOUR_DB_USER_HERE"
+        },
+        {
+          "name": "DB_NAME",
+          "value": "YOUR_DB_NAME_HERE"
+        },
+        {
+          "name": "AWS_SECRET_KEY",
+          "value": "YOUR_AWS_SECRET_KEY_DUMMY"
+        },
+        {
+          "name": "S3_BUCKET_NAME",
+          "value": "transbandung-asri-bucket-2026"
+        },
+        {
+          "name": "AWS_ACCESS_KEY",
+          "value": "YOUR_AWS_ACCESS_KEY_DUMMY"
+        },
+        {
+          "name": "DB_HOST",
+          "value": "YOUR_RDS_ENDPOINT_HERE"
+        },
+        {
+          "name": "DB_PASSWORD",
+          "value": "YOUR_DB_PASSWORD_DUMMY"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/transbandung-task-sydney",
+          "awslogs-create-group": "true",
+          "awslogs-region": "ap-southeast-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ],
+  "executionRoleArn": "arn:aws:iam::503280397499:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "1024",
+  "memory": "3072",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  }
+}

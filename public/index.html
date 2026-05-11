@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TransBandung Monitor</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; margin: 0; padding: 20px; display: flex; justify-content: center; }
+        .container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+        h1 { color: #007bff; text-align: center; font-size: 24px; }
+        p { text-align: center; color: #666; margin-bottom: 25px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; color: #333; }
+        input, textarea { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: 0.3s; }
+        button:hover { background-color: #0056b3; }
+        .footer { text-align: center; margin-top: 20px; font-size: 12px; color: #999; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚌 TransBandung</h1>
+        <p>Laporan Kendala Transportasi Kota</p>
+        
+        <form action="/lapor" method="POST" enctype="multipart/form-data">
+            <label>Lokasi Kejadian</label>
+            <input type="text" name="lokasi" placeholder="Contoh: Halte ITENAS" required>
+            
+            <label>Deskripsi Kendala</label>
+            <textarea name="deskripsi" rows="4" placeholder="Ceritakan kendala yang terjadi..." required></textarea>
+            
+            <label>Foto Bukti (Upload ke S3)</label>
+            <input type="file" name="foto" accept="image/*" required>
+            
+            <button type="submit">Kirim Laporan Sekarang</button>
+        </form>
+        
+        <div class="footer">
+            ETS Cloud Computing - Institut Teknologi Nasional Bandung
+        </div>
+    </div>
+</body>
+</html>
