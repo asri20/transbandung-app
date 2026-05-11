@@ -5,12 +5,13 @@ on:
     branches: [ "main" ]
 
 env:
-  AWS_REGION: ap-southeast-2                   # Region Sydney
+  AWS_REGION: ap-southeast-2                   # Region Sydney (Sudah Benar)
   ECR_REPOSITORY: transbandung-app             # Nama repository ECR kamu
-  ECS_SERVICE: transbandung-service            # Nama service di ECS
-  ECS_CLUSTER: transbandung-cluster-sydney     # Nama cluster di ECS
-  ECS_TASK_DEFINITION: task-definition.json    # Nama file task definition kamu
-  CONTAINER_NAME: transbandung-container       # Nama container di task definition
+  # BAGIAN DI BAWAH INI DISESUAIKAN DENGAN SCREENSHOT AWS KAMU:
+  ECS_SERVICE: transbandung-task-sydney-service-locezo5g 
+  ECS_CLUSTER: transbandung-cluster-sydney     
+  ECS_TASK_DEFINITION: task-definition.json    
+  CONTAINER_NAME: transbandung-container       
 
 jobs:
   deploy:
