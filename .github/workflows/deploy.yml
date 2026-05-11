@@ -5,13 +5,12 @@ on:
     branches: [ "main" ]
 
 env:
-  AWS_REGION: ap-southeast-2                   # Region Sydney (Sudah Benar)
-  ECR_REPOSITORY: transbandung-app             # Nama repository ECR kamu
-  # BAGIAN DI BAWAH INI DISESUAIKAN DENGAN SCREENSHOT AWS KAMU:
-  ECS_SERVICE: transbandung-task-sydney-service-locezo5g 
-  ECS_CLUSTER: transbandung-cluster-sydney     
-  ECS_TASK_DEFINITION: task-definition.json    
-  CONTAINER_NAME: transbandung-container       
+  AWS_REGION: ap-southeast-2
+  ECR_REPOSITORY: transbandung-app
+  ECS_SERVICE: transbandung-task-sydney-service-locezo5g
+  ECS_CLUSTER: transbandung-cluster-sydney
+  ECS_TASK_DEFINITION: task-definition.json
+  CONTAINER_NAME: transbandung-container  # <--- Ini harus sama dengan di JSON       
 
 jobs:
   deploy:
