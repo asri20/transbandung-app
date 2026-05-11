@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "transbandung-container",
-      "image": "503280397499.dkr.ecr.ap-southeast-2.amazonaws.com/transbandung-app:v2",
+      "image": "503280397499.dkr.ecr.ap-southeast-2.amazonaws.com/transbandung-app:latest",
       "cpu": 0,
       "portMappings": [
         {
